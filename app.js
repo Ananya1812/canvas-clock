@@ -1,10 +1,7 @@
-// object for canvas
-var canvas = document.getElementById ("canvas");
 
-//creating 2d object
+var canvas = document.getElementById ("canvas");
 var context = canvas.getContext("2d");
 
-//clock radius
 var radius= canvas.height/2;
 
 context.translate(radius,radius);
@@ -64,17 +61,17 @@ function drawTime(context,radius){
     var hour = now.getHours();
     var minute = now.getMinutes();
     var second =  now.getSeconds();
-    //calculate the angle 
+  
     hour=hour%12;
-    //hour hand
+    
     hour = (hour*Math.PI/6)+(minute*Math.PI/(6*60))+(second*Math.PI/(360*60))
     drawHand(context,hour,radius*0.4,radius*0.04)
 
-    //minute hand
+   
     minute=(minute*Math.PI/30) + (second*Math.PI/(30*60))
     drawHand(context,minute,radius*0.6,radius*0.04)
 
-    //second hand
+    
     second=(second*Math.PI/30)
     drawHand(context,second,radius*0.9,radius*0.01)
 }
